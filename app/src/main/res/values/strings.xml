@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Haker Movies</string>
+    <string name="upcoming">Upcoming Movies</string>
+    <string name="popular">Popular Movies</string>
+    <string name="favorites">Favorites</string>
+    <string name="see_all">See all</string>
+</resources>
