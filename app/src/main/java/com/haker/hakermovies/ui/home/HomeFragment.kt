@@ -47,6 +47,8 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
                         recyclerViewPopularMovies.adapter = adapterPopularMovies
                         adapterPopularMovies.submitData(lifecycle, response)
 
+                        Log.d(TAG, "response = $response")
+
                         adapterPopularMovies.loadStateFlow.collectLatest { loadStates ->
                             when (loadStates.refresh) {
                                 is LoadState.Loading -> {

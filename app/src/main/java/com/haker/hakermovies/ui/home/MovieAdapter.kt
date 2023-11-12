@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.haker.hakermovies.BasePagingAdapter
+import com.haker.hakermovies.data.model.local.MovieOffline
 import com.haker.hakermovies.databinding.ItemMoviesBinding
 import com.haker.hakermovies.domain.model.MovieUI
 import com.haker.hakermovies.loadImage
