@@ -40,5 +40,8 @@ object Constants {
         const val DELETE_FAVORITE = "DELETE FROM favorites WHERE id = :id"
         const val IS_FAVORITE = "SELECT EXISTS(SELECT * FROM favorites WHERE id = :id)"
         const val GET_FAVORITES = "SELECT * FROM favorites ORDER BY addDate DESC"
+
+        const val GET_MOVIES = "SELECT * FROM movies ORDER BY releaseDate DESC"
+        const val DELETE_MOVIES = "DELETE FROM favorites"
     }
 }

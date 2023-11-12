@@ -4,6 +4,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.haker.hakermovies.Resource
 import com.haker.hakermovies.data.model.local.Favorite
+import com.haker.hakermovies.data.model.local.MovieOffline
 import com.haker.hakermovies.domain.mapper.toMovieDetailsUI
 import com.haker.hakermovies.domain.mapper.toMovieUI
 import com.haker.hakermovies.domain.model.MovieDetailsUI
@@ -72,6 +73,24 @@ class MovieRepositoryImpl @Inject constructor(
         } catch (t: Throwable) {
             emit(Resource.Error(t))
         }
+    }
+
+    override suspend fun addMovie(movieOffline: MovieOffline) {
+        local.addMovie(movieOffline)
+    }
+
+    override fun getMovies(): Flow<Resource<List<MovieOffline>>> = flow {
+        emit(Resource.Loading)
+        try {
+            val response = local.getMovies()
+            emit(Resource.Success(response))
+        } catch (t: Throwable) {
+            emit(Resource.Error(t))
+        }
+    }
+
+    override suspend fun deleteMovies() {
+        local.deleteMovies()
     }
 
 }

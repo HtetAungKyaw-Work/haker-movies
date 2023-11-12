@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.haker.hakermovies.Constants
 import com.haker.hakermovies.data.model.local.Favorite
+import com.haker.hakermovies.data.model.local.MovieOffline
 
 @Dao
 interface MovieDao {
@@ -21,4 +22,13 @@ interface MovieDao {
 
     @Query(Constants.Queries.GET_FAVORITES)
     suspend fun getFavorites(): List<Favorite>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addMovie(offline: MovieOffline)
+
+    @Query(Constants.Queries.GET_MOVIES)
+    suspend fun getMovies(): List<MovieOffline>
+
+    @Query(Constants.Queries.DELETE_MOVIES)
+    suspend fun deleteMovies()
 }

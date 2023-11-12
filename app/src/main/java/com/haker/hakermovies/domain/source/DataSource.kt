@@ -2,6 +2,7 @@ package com.haker.hakermovies.domain.source
 
 import androidx.paging.PagingData
 import com.haker.hakermovies.data.model.local.Favorite
+import com.haker.hakermovies.data.model.local.MovieOffline
 import com.haker.hakermovies.data.model.remote.Movie
 import com.haker.hakermovies.data.model.remote.MovieDetailsResponse
 import dagger.Provides
@@ -20,5 +21,12 @@ interface DataSource {
         suspend fun removeFavorite(id: Int)
         suspend fun isFavorite(id: Int): Boolean
         suspend fun getFavorites(): List<Favorite>
+
+        suspend fun addMovie(movieOffline: MovieOffline)
+
+        suspend fun getMovies(): List<MovieOffline>
+
+        suspend fun deleteMovies()
+
     }
 }
